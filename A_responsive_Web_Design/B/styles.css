@@ -1,0 +1,111 @@
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: Open Sans, sans-serif;
+    background-color: #fffcfa;
+}
+
+figure {
+    margin: 40px auto 0 auto;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+header {
+    height: auto;
+    width: 50%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    color: #322319;
+    margin: 30px 0 0 0;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 10px 0 0 0;
+    color: #635442;
+    letter-spacing: 1px;
+}
+
+header .divider {
+    border-bottom: 2px solid #5C90AE;
+    margin: 10px 0;
+    width: 100%;
+}
+
+#tribute-info {
+    background-color: #E0D8C9;
+    margin-top: 40px;
+    border-radius: 10px 10px 0 0;
+}
+
+section {
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+}
+
+section .bio {
+    width: 70%;
+    margin: 0 auto 20px auto;
+    color: #322319;
+    font-size: 1.2rem;
+}
+
+section h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 40px auto 20px auto;
+    color: #322319;
+    width: 70%;
+}
+
+section h4 {
+    margin: 50px auto 0 auto;
+    font-size: 1.3rem;
+    color: #322319;
+    width: 70%;
+}
+
+#tribute-link {
+    color: #5C90AE;
+    text-decoration: none;
+}
+
+#tribute-link:hover {
+    color: #635442;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+#img-caption {
+    font-size: .8rem;
+    font-weight: 300;
+}
+
+ul {
+    width: 70%;
+    margin: 0 auto;
+    text-align: start;
+}
+
+li {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}

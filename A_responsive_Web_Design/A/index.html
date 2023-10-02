@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreeCodeCamp Project 01</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <h1 id="title">Project Survey Form</h1>
+  <p id="description">This is my first FreeCodeCamp project solution.</p>
+  <form id="survey-form">
+    <fieldset>
+      <label for="name" id="name-label">Nome: <input type="text" id="name" required placeholder="Your name"></label>
+      <label for="email" id="email-label">Email: <input type="email" id="email" required
+          placeholder="Your email"></label>
+      <label for="number" id="number-label">Number: <input type="number" id="number" min="0" max="100"
+          placeholder="0-100"></label>
+    </fieldset>
+    <fieldset>
+      <label for="dropdown">Have you drank a cup of water today?
+        <select name="dropdown" id="dropdown">
+          <option value="">(choose option)</option>
+          <option value=1>Yes</option>
+          <option value=2>No</option>
+        </select>
+      </label>
+    </fieldset>
+    <fieldset>
+      <label for="consume">Rate your consume of water
+        <input name="consume" type="radio" value=1 class="inline"> 1
+        <input name="consume" type="radio" value=2 class="inline"> 2
+        <input name="consume" type="radio" value=3 class="inline"> 3
+        <input name="consume" type="radio" value=4 class="inline"> 4
+        <input name="consume" type="radio" value=5 class="inline"> 5
+      </label>
+    </fieldset>
+    <fieldset>
+      <label for="like">Check what you like:
+        <input name="like" type="checkbox" value=1 class="inline"> Water
+        <input name="like" type="checkbox" value=2 class="inline"> Tea
+        <input name="like" type="checkbox" value=3 class="inline"> Juice
+        <input name="like" type="checkbox" value=4 class="inline"> Soda
+        <input name="like" type="checkbox" value=5 class="inline"> Coffee
+        <input name="like" type="checkbox" value=6 class="inline"> Beer
+        <input name="like" type="checkbox" value=7 class="inline"> Wine
+      </label>
+    </fieldset>
+    <fieldset>
+      <label for="comments">Do you have some experience with water?
+        <textarea name="comments" id="comments" cols="30" rows="10" placeholder="Chuaaa chuaaa chuaa chuaa"></textarea>
+      </label>
+    </fieldset>
+    <input type="submit" value="Submit" id="submit"/>
+  </form>
+</body>
+
+</html>
