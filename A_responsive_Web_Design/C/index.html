@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <nav id="navbar">
+    <header><a href="#">SVG</a></header>
+    <ul>
+      <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#what_you_should_already_know">What you should already know</a></li>
+      <li><a class="nav-link" href="#simple_example">Simple Example</a></li>
+      <li><a class="nav-link" href="#basic_properties">Basic Properties</a></li>
+      <li><a class="nav-link" href="#the_grid">The Grid</a></li>
+      <li><a class="nav-link" href="#units">Units</a></li>
+      <li><a class="nav-link" href="#basic_shapes">Basic Shapes</a></li>
+      <li><a class="nav-link" href="#rectangle">Rectangle</a></li>
+      <li><a class="nav-link" href="#circle">Circle</a></li>
+      <li><a class="nav-link" href="#ellipse">Ellipse</a></li>
+      <li><a class="nav-link" href="#line">Line</a></li>
+      <li><a class="nav-link" href="#polyline">Polyline</a></li>
+      <li><a class="nav-link" href="#polygon">Polygon</a></li>
+      <li><a class="nav-link" href="#path">Path</a></li>
+      <li><a class="nav-link" href="#continue">Continue</a></li>
+      <li><a class="nav-link" href="#reference">Reference</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      <article>
+        <p>Scalable Vector Graphics (SVG) is an XML-based markup language for describing two-dimensional graphics.</p>
+        <p>Essentially, a SVG is, for images, what a HTML is for text. It is a file extension that is written in XML
+          syntax for describing images, as vector graphics, in an open Web standard. It can render any vector cleanly at
+          any size and is designed specifically to work well with other web standards including CSS, DOM, JavaScript,
+          and SMIL.
+        </p>
+        <p>SVG has been developed by the World Wide Web Consortium (W3C) since 1999.</p>
+      </article>
+      <aside>
+        <p class="aside-title">What is a vector?</p>
+        <p class="aside-text">When you are working with digital images, there are two types of image: raster and vector.
+          The images built by vectors, are in fact being built by mathematical formulas that establish points on a grid.
+          Making it possible to resize the image without losing quality.</p>
+      </aside>
+    </section>
+
+    <section class="main-section" id="what_you_should_already_know">
+      <header>What you should already know</header>
+      <article>
+        <p>This guide assumes you have the following basic background:</p>
+        <ul>
+          <li>A general understanding of the Internet and the World Wide Web (WWW).</li>
+          <li>Basic understanding of XML or another markup language such as HTML.</li>
+          <li>Knowledge about basic geometric forms</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="simple_example">
+      <header>Simple example</header>
+      <article>
+          <code class="pre-code"><span class="token punctuation"><</span>svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <span class="token punctuation"><</span>rect width="100%" height="100%" fill="rgb(0, 127, 255)"/>
+  <span class="token punctuation"><</span>circle cx="150" cy="100" r="80" fill="rgb(127, 255, 0)"/>
+  <span class="token punctuation"><</span>circle cx="150" cy="100" r="70" fill="rgb(0, 127, 255)"/>
+  <span class="token punctuation"><</span>circle cx="150" cy="100" r="60" fill="rgb(255, 127, 0)"/>
+  <span class="token punctuation"><</span>circle cx="150" cy="100" r="50" fill="rgb(0, 127, 255)"/>
+<span class="token punctuation"><</span>/svg></code>
+        <p>Copy the code into a file, "example1.svg". Open the file in a browser and It will render as shown in the
+          following:</p>
+        <figure>
+          <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="rgb(0, 127, 255)" />
+            <circle cx="150" cy="100" r="80" fill="rgb(127, 255, 0)" />
+            <circle cx="150" cy="100" r="70" fill="rgb(0, 127, 255)" />
+            <circle cx="150" cy="100" r="60" fill="rgb(255, 127, 0)" />
+            <circle cx="150" cy="100" r="50" fill="rgb(0, 127, 255)" />
+          </svg>
+          <figcaption>A blue rectangle with a orange circle inside of a green circles.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <section class="main-section" id="basic_properties">
+      <header>Basic properties</header>
+      <article>
+        <ul>
+          <li>The first property to keep in mind is that the order of organization of the elements, from background to
+            foreground, is defined in the sequence of text lines in the file. Therefore, the further down the lines of
+            code, the more ahead of the elements it will be. So normally your background should be stated in the first
+            line. To better understand this concept in practice, take a look at the <code>z-index</code> CSS property
+          </li>
+          <li>
+            There are several different ways to use SVG images in CSS, HTML or direclty in the browser:
+            <ul>
+              <li>If the HTML is XHTML and is delivered as type application/xhtml+xml, the SVG can be directly embedded
+                in the XML source.</li>
+              <li>The SVG can also be directly embedded in HTML, using this syntax:
+                <code class="pre-code"><span class="token punctuation"><</span>embed src="image.svg"/></code>
+              </li>
+              <li>It can be added with a <code><span class="token punctuation"><</span>img></code> using this syntax:
+                <code class="pre-code"><span class="token punctuation"><</span>img src="image.svg" alt="My SVG"/></code>
+              </li>
+              <li>The SVG file can be referenced with an object element, with
+                <code class="pre-code"><span class="token punctuation"><</span>object data="image.svg" type="image/svg+xml"></object></code>
+              </li>
+              <li>Likewise an iframe element can be used:
+                <code class="pre-code"><span class="token punctuation"><</span>iframe src="image.svg"></iframe></code>
+              </li>
+              <li>An CSS property of <code>background-image</code> can be used as:
+                <code class="pre-code">body {
+  background-image: url(image.svg);
+}</code>
+              </li>
+              <li>SVG images can be written directly into the HTML document using the
+                <code><span class="token punctuation"><</span>svg></code> tag:
+                <code class="pre-code"><span class="token punctuation"><</span>body>
+  <span class="token punctuation"><</span>svg>
+    write the code here
+  <span class="token punctuation"><</span>/svg>
+<span class="token punctuation"><</span>/body></code>
+              </li>
+              <li>Finally, SVG can be created dynamically with JavaScript and injected into the HTML DOM.</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="the_grid">
+      <header>The Grid</header>
+      <article>
+        <p>For all elements, SVG uses a coordinate system or grid system. The top left corner of the document is
+          considered to be the point (0,0), or point of origin. Positions are then measured in pixels from the top left
+          corner, with the positive x direction being to the right, and the positive y direction being to the bottom.
+        </p>
+        <figure>
+          <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="lightblue" stroke-width="0.5" />
+              </pattern>
+              <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                <rect width="100" height="100" fill="url(#smallGrid)" />
+                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="lightblue" stroke-width="1" />
+              </pattern>
+              <marker id="head-start" orient="auto-start-reverse" markerWidth="4" markerHeight="4" refX="0.1" refY="2">
+                <path d="M0,0 V4 L2,2 Z" fill="black" />
+              </marker>
+              <marker id="head-end" orient="auto" markerWidth="4" markerHeight="4" refX="0.1" refY="2">
+                <path d="M0,0 V4 L2,2 Z" fill="black" />
+              </marker>
+            </defs>
+            <rect x="5" y="5" width="100%" height="100%" fill="url(#grid)" />
+            <!-- <rect width="100%" height="100%" stroke="black" stroke-width="3" fill="none"/>           -->
+            <rect width="50" height="50" fill="rgb(0, 127, 255)" x="70" y="70" />
+            <path id="arrow-line" marker-start="url(#head-start)" marker-end="url(#head-end)" stroke-width="2"
+              fill="none" stroke="black" d="M15 70 60 70" />
+            <path id="arrow-line" marker-start="url(#head-start)" marker-end="url(#head-end)" stroke-width="2"
+              fill="none" stroke="black" d="M70 15 70 60 " />
+            <text x="80" y="40" class="small">y</text>
+            <text x="30" y="90" class="small">x</text>
+            <text x="10" y="20" class="small">(0, 0)</text>
+            <path id="arrow-line" marker-end="url(#head-end)" stroke-width="2" fill="none" stroke="black"
+              d="M5 5 5 150" />
+            <path id="arrow-line" marker-end="url(#head-end)" stroke-width="2" fill="none" stroke="black"
+              d="M5 5 200 5" />
+            <circle cx="5" cy="5" r="4" fill="black" />
+          </svg>
+          <figcaption>A diagram showing the grid of an svg file</figcaption>
+        </figure>
+      </article>
+      <aside>
+        <p class="aside-title">Example</p>
+        <code><span class="token-punctuation"><</span>rect x="0" y="0" width="100" height="100" /></code>
+        <p class="aside-text">Defines a rectangle from the upper left corner that spans 100px to the right and 100px to
+          the bottom.</p>
+      </aside>
+    </section>
+
+    <section class="main-section" id="units">
+      <header>Units</header>
+      <article>
+        In a SVG file there are several possibilities of different units.
+        <ul>
+          <li>Pixels (px): SVG files can use pixels as a unit of measurement, just like in raster images. For example,
+            you can specify the dimensions of an SVG element or the coordinates of shapes using pixels.</li>
+          <li>Percentages (%): Percentages are often used in SVG files to create responsive designs. For instance, you
+            can set the width or height of an SVG element as a percentage of its containing element.</li>
+          <li>Inches (in): Inches are a common unit of measurement for physical print dimensions. You can use inches in
+            SVG files to specify sizes for printing purposes.</li>
+          <li>Centimeters (cm): Centimeters are another unit of measurement for physical dimensions and are often used
+            for print layouts.</li>
+          <li>Millimeters (mm): Millimeters are a finer unit of measurement than centimeters and are also used for
+            precise physical dimensions in print layouts.</li>
+          <li>Points (pt): Points are a unit of measurement commonly used in typography and print design. They are often
+            used to set font sizes and other text-related properties.</li>
+          <li>Picas (pc): Picas are another unit used in typography and print design. One pica is equal to 12 points.
+          </li>
+          <li>Em units (em): Em units are a relative unit of measurement often used for text sizing. One em is equal to
+            the current font size. It can also be used for other properties, like spacing and positioning, in relation
+            to the font size.</li>
+          <li>Ex units (ex): Ex units are another relative unit of measurement in SVG, typically used in relation to the
+            height of lowercase letters in the current font.</li>
+          <li>User units (userUnit): User units are arbitrary units defined by the user or software. They are often used
+            for custom scaling or transformations within the SVG file.</li>
+        </ul>
+        <p>In the most basic case, one pixel in an SVG document maps to one pixel on the output device (i.e., the
+          screen). But SVG wouldn't have the "Scalable" in its name if there weren't several possibilities to change
+          this behavior. Much like absolute and relative font sizes in CSS, SVG defines absolute units (ones with a
+          dimensional identifier like "pt" or "cm") and so-called user units, which lack that identifier and are plain
+          numbers.</p>
+      </article>
+    </section>
+
+    <section class="main-section" id="basic_shapes">
+      <header>Basic Shapes</header>
+      <article>
+        <figure>
+          <svg width="521" height="70" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" />
+            <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent"
+              stroke-width="5" />
+            <circle cx="150" cy="25" r="20" stroke="red" fill="transparent" stroke-width="5" />
+            <ellipse cx="210" cy="25" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5" />
+            <line x1="260" x2="300" y1="10" y2="50" stroke="orange" stroke-width="5" />
+            <polyline points="310 10 315 20 320 15 325 30 330 25 335 40 340 35 345 50 350 45" stroke="orange"
+              fill="transparent" stroke-width="5" />
+            <polygon points="400 10 405 30 420 30 410 40 415 55 400 45 385 55 390 40 380 30 395 30" stroke="green"
+              fill="transparent" stroke-width="5" />
+            <path d="M450, 35 Q470, 10 480, 35 T520, 35" fill="none" stroke="blue" stroke-width="5" />
+          </svg>
+          <figcaption>From left to right: a black rectangle with straight cornes; a black rectangle with round cornes; a
+            red circle; a red elipse; a diagonal orange line; a diagonal orange zig-zag line; a green star; and a blue
+            line shaped like a wave</figcaption>
+        </figure>
+        <p>The code to generate the image: </p>
+        <code class="pre-code"><span class="token-punctuation"><</span>svg width="600" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <span class="token-punctuation"><</span>rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" />
+  <span class="token-punctuation"><</span>rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent"
+  stroke-width="5" />
+  <span class="token-punctuation"><</span>circle cx="150" cy="25" r="20" stroke="red" fill="transparent" stroke-width="5" />
+  <span class="token-punctuation"><</span>ellipse cx="210" cy="25" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5" />
+  <span class="token-punctuation"><</span>line x1="260" x2="300" y1="10" y2="50" stroke="orange" stroke-width="5" />
+  <span class="token-punctuation"><</span>polyline points="310 10 315 20 320 15 325 30 330 25 335 40 340 35 345 50 350 45" stroke="orange"
+  fill="transparent" stroke-width="5" />
+  <span class="token-punctuation"><</span>polygon points="400 10 405 30 420 30 410 40 415 55 400 45 385 55 390 40 380 30 395 30" stroke="green"
+  fill="transparent" stroke-width="5" />
+  <span class="token-punctuation"><</span>path d="M450, 35 Q470, 10 480, 35 T520, 35" fill="none" stroke="blue" stroke-width="5" />
+<span class="token-punctuation"><</span>/svg></code>
+      </article>
+    </section>
+
+    <section class="main-section" id="rectangle">
+      <header>Rectangle</header>
+      <article>
+        <p>The <code><span class="token-punctuation"><</span>rect></code> creates a rectangle on the screen. The tag
+          has six attributes that are responsible for the shape and position.</p>
+        <code  class="pre-code""><span class="token-punctuation"><</span>rect x="30" y="30" rx="5" ry="5" width="40" height="60"/></code>
+        <ul class="basic-shape-list">
+          <li>
+            <code class="shape-attr">x</code>
+            <p>The x position of the top left corner of the rectangle.</p>
+          </li>
+          <li>
+            <code class="shape-attr">y</code>
+            <p>The y position of the top left corner of the rectangle.</p>
+          </li>
+          <li>
+            <code class="shape-attr">width</code>
+            <p>The width of the rectangle.</p>
+          </li>
+          <li>
+            <code class="shape-attr">height</code>
+            <p>The height of the rectangle.</p>
+          </li>
+          <li>
+            <code class="shape-attr">rx</code>
+            <p>The x radius of the corners of the rectangle.</p>
+          </li>
+          <li>
+            <code class="shape-attr">ry</code>
+            <p>The y radius of the corners of the rectangle.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="circle">
+      <header>Circle</header>
+      <article>
+        <p>The <code><span class="token-punctuation"><</span>circle></code> creates a circle on the screen. The tag
+          has three attributes that are responsible for the size and position.</p>
+        <code class="pre-code"><span class="token-punctuation"><</span>circle cx="30" cy="30" r="5"/></code>
+        <ul class="basic-shape-list">
+          <li>
+            <code class="shape-attr">r</code>
+            <p>The radius of the circle.</p>
+          </li>
+          <li>
+            <code class="shape-attr">cx</code>
+            <p>The x position of the center of the circle.</p>
+          </li>
+          <li>
+            <code class="shape-attr">cy</code>
+            <p>The y position of the center of the circle.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="ellipse">
+      <header>Ellipse</header>
+      <article>
+        <p>The <code><span class="token-punctuation"><</span>ellipse></code> creates a circle with x and y radius
+          control. The tag
+          has four attributes that are responsible for the size and position.</p>
+        <code class="pre-code"><span class="token-punctuation"><</span>cellipse cx="30" cy="30" rx="10" ry="15"/></code>
+        <ul class="basic-shape-list">
+          <li>
+            <code class="shape-attr">rx</code>
+            <p>The x radius of the ellipse.</p>
+          </li>
+          <li>
+            <code class="shape-attr">ry</code>
+            <p>The y radius of the ellipse.</p>
+          </li>
+          <li>
+            <code class="shape-attr">cx</code>
+            <p>The x position of the center of the ellipse.</p>
+          </li>
+          <li>
+            <code class="shape-attr">cy</code>
+            <p>The y position of the center of the ellipse.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="line">
+      <header>Line</header>
+      <article>
+        <p>The <code><span class="token-punctuation"><</span>line></code> creates a line, by the position (x, y) of two
+          points. The tag
+          has four attributes that are responsible for the position from start to end.</p>
+        <code class="pre-code"><span class="token-punctuation"><</span>line x1="30" x2="60" y1="30" y2="60" stroke="rgb(0, 127, 255)" stroke-width="5"/>/></code>
+        <ul class="basic-shape-list">
+          <li>
+            <code class="shape-attr">x1</code>
+            <p>The x position of point 1.</p>
+          </li>
+          <li>
+            <code class="shape-attr">x2</code>
+            <p>The x position of point 2.</p>
+          </li>
+          <li>
+            <code class="shape-attr">y1</code>
+            <p>The y position of point 1.</p>
+          </li>
+          <li>
+            <code class="shape-attr">y2</code>
+            <p>The y position of point 2.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="polyline">
+      <header>Polyline</header>
+      <article>
+        <p>The <code><span class="token-punctuation"><</span>polyline></code> connect each point with a straight line,
+          by the position (x, y) of n points. The tag
+          has one attribute.</p>
+        <code class="pre-code"><span class="token-punctuation"><</span>polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"/></code>
+        <ul class="basic-shape-list">
+          <li>
+            <code class="shape-attr">points</code>
+            <p>A list of points. Each number must be separated by a space, comma, EOL, or a line feed character with
+              additional whitespace permitted. Each point must contain two numbers: an x coordinate and a y coordinate.
+              So, the list (0,0), (1,1), and (2,2) could be written as 0, 0 1, 1 2, 2.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="polygon">
+      <header>Polygon</header>
+      <article>
+        <p>The <code><span class="token-punctuation"><</span>polygon></code> connect each point with a straight line,
+          by the position (x, y) of n points, similar to <code><span class="token-punctuation"><</span>polyline></code>
+          though, the only difference being that the start and end points are automatically connected. The tag has one
+          attribute.</p>
+        <code class="pre-code"><span class="token-punctuation"><</span>polygon points="50, 160 55, 180 70, 180 60, 190 65, 205 50, 195 35, 205 40, 190 30, 180 45, 180"/></code>
+        <ul class="basic-shape-list">
+          <li>
+            <code class="shape-attr">points</code>
+            <p>A list of points, each number separated by a space, comma, EOL, or a line feed character with additional
+              whitespace permitted. Each point must contain two numbers: an x coordinate and a y coordinate. So, the
+              list (0,0), (1,1), and (2,2) could be written as 0, 0 1, 1 2, 2. The drawing then closes the path, so a
+              final straight line would be drawn from (2,2) to (0,0).</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="path">
+      <header>Path</header>
+      <article>
+        <p>The <code><span class="token-punctuation"><</span>path></code> is a generic tag that you can construct any kind of shape. The tag has one attribute.</p>
+        <code class="pre-code"><span class="token-punctuation"><</span>path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="rgb(0, 127, 255)" stroke-width="5"/></code>
+        <ul class="basic-shape-list">
+          <li>
+            <code class="shape-attr">d</code>
+            <p>A list of points and other information about how to draw the path.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="main-section" id="continue">
+      <header>Continue</header>
+      <article>
+        <p>To continue reading, visit the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">Paths</a> section from MDN</p>
+      </article>
+    </section>
+
+    <section class="main-section" id="reference">
+      <header>Reference</header>
+      <article>
+        <p>All the information were taken from:</p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG">MDN</a></li>
+          <li><a href="https://www.w3.org/TR/SVG2/Overview.html">W3</a></li>
+          <li><a href="https://www.adobe.com/creativecloud/file-types/image/vector/svg-file.html">Adobe</a></li>
+          <li><a href="https://www.freecodecamp.org/news/use-svg-images-in-css-html/">Free Code Camp</a></li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+</body>
+
+</html>
