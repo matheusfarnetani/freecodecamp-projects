@@ -165,6 +165,13 @@ nav>ul>li>a:hover {
   font-weight: 400
 }
 
+/* In order to complete exercise */
+#navbar {
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+}
+
 /* Welcome Section
 */
 #welcome-section {
@@ -183,9 +190,11 @@ nav>ul>li>a:hover {
   0% {
     background-position: 100% 50%;
   }
+
   50% {
     background-position: 50% 70%;
   }
+
   100% {
     background-position: 100% 50%;
   }
@@ -385,13 +394,21 @@ footer {
 
 @media (max-width: 1200px) {
   #about {
-    height: 50vh;
+    height: auto;
   }
 
   .project {
     width: 400px;
   }
-  
+
+  .text-title {
+    margin-top: 50px;
+  }
+
+  .text-text:last-of-type {
+    margin-bottom: 50px;
+  }
+
   .project-img,
   .info {
     max-width: 300px;
@@ -403,7 +420,6 @@ footer {
 }
 
 @media (max-width: 1000px) {
-
   #projects>.container>.row {
     flex-wrap: wrap;
   }
@@ -436,7 +452,7 @@ footer {
   }
 
   .text-text:last-of-type {
-    margin-bottom: 30px ;
+    margin-bottom: 30px;
   }
 
   .project {
@@ -496,6 +512,7 @@ footer {
 }
 
 @media (max-width: 450px) {
+
   #welcome-section h1,
   #welcome-section p {
     width: 200px;
@@ -505,7 +522,7 @@ footer {
     width: 250px;
     margin: 10px;
   }
-  
+
   .project-img,
   .info,
   .project>a>.name {
